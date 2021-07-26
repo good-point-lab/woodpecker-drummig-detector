@@ -23,7 +23,7 @@ Alexander Greysukh, "CNN Classifier for Just-in-Time Woodpeckers Detection and D
 ESP32-based LOLIN 32 MCU, MSGEQ7 Seven Band Spectrum Analyzer Breakout Board, MAX4466 Electret Microphone Amplifier, and SSD1306 OLED Display.  The schematic is presented in the diagrams/schematic.png.
 
 ## Software <a name="software"></a>
-The code is separated into two sections. The models/ directory contains Python scripts to annotate and collect the data from the device (capture.py) and train the models (train.py). The device/ directory contains C++ code to generate spectrograms and to run inference. The code runs in two modes - serial I/O for acquiring training data and operational. Standard Arduino setup() and loop() methods are in the main_functions.cpp
+The code is separated into two sections. The models/ directory contains Python scripts to annotate and collect the data from the device (capture.py) and train the models (train.py). The device/ directory contains C++ code to generate spectrograms and to run inference. The code runs in two modes - serial I/O for acquiring training data and operational. Standard Arduino setup() and loop() methods are in the main_functions.cpp. To build the project, add the TensorFlow Lite for ESP32 library to the lib directory (the link is bellow).
 
 Major Dependencies:
  
@@ -38,7 +38,10 @@ Major Dependencies:
 ## Roadmap <a name="roadmap"></a>
 
 Several optimizations and enhancements may be required to make the classifier ready for testing in the field, including:
-* A proximity sensor to save power (alternatively, one could wake up the classifier only when the ambient signal level is above a certain threshold).* Solar battery charger.* More sensitive directional microphone.
+
+* A proximity sensor to save power (alternatively, one could wake up the classifier only when the ambient signal level is above a certain threshold).
+* Solar battery charger.
+* More sensitive directional microphone.
 * Quantization for reducing memory requements.
 
 Integration with a detering device is another, separate topic.
